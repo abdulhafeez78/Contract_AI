@@ -9,7 +9,7 @@ export const Foooter = () => {
         <Row className="align-items-center">
           <MailchimpForm />
           <Col xs={12} sm={6}>
-            <img src="https://svgshare.com/i/tKZ.svg" alt="Logo" />
+            <img src="/new_logo.png" alt="Logo" />
           </Col>
           <Col xs={12} sm={6} className="text-center text-sm-end">
             <div className="social-icon">
