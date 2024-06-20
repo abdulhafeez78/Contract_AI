@@ -56,7 +56,7 @@ const FileUpload: React.FC = () => {
       <div className="titre">
         <div className="first-word">Contract Q&A:</div>
         <div className="complete-phrase">
-          <span>Unlocking Answers to Vital Questions</span>
+          {/* <span>Unlocking Answers to Vital Questions</span> */}
         </div>
       </div>
       <div className="dashboard">
