@@ -681,7 +681,65 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-weight: 500;
   letter-spacing: 0.5px;
   border-radius: 18px;
+  border: none; /* Add this line to remove default button border */
 }
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .newsletter-bx {
+    padding: 60px 100px;
+  }
+
+  .new-email-bx button {
+    padding: 15px 50px;
+  }
+}
+
+@media (max-width: 992px) {
+  .newsletter-bx {
+    padding: 50px 80px;
+  }
+
+  .new-email-bx button {
+    padding: 15px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .newsletter-bx {
+    padding: 40px 60px;
+    margin-top: -100px;
+  }
+
+  .new-email-bx {
+    flex-direction: column;
+  }
+
+  .new-email-bx input {
+    margin-bottom: 10px;
+  }
+
+  .new-email-bx button {
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .newsletter-bx {
+    padding: 30px 40px;
+    margin-top: -80px;
+  }
+
+  .new-email-bx input {
+    padding: 10px;
+  }
+
+  .new-email-bx button {
+    padding: 10px;
+  }
+}
+
 .footer img {
   width: 26%;
 }
