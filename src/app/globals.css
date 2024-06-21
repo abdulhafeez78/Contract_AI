@@ -405,7 +405,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   bottom: 0;
   width: 40%;
   opacity: 0.5;
-  z-index: 9;
+  /* z-index: 9; */
 }
 
 /************ Projects Css ************/
@@ -1128,6 +1128,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   section.augs::before {
     filter: brightness(0.2) blur(10px);
   }
+
+
+
+
   .code-textarea{
     background-color: transparent;
     outline: none;
@@ -1137,6 +1141,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   resize: none;
     
   }
+
+
   /* .dots {
     position: absolute;
     top: 2px;
@@ -1437,6 +1443,52 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     text-shadow: 0 0 2px #393a33, 0 0 35px #ffffff44, 0 0 10px #8a2dc066, 0 0 2px #8a2dc066;
   }
     */
+
+    .skill .skill-bx {
+      text-align: center;
+    }
+    
+    .skill .item {
+      position: relative;
+      padding: 20px;
+    }
+    
+    .skill .item img {
+      width: 100%;
+      height: auto;
+    }
+    
+    .skill .carousel-text {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+    
+    @media (max-width: 768px) {
+      .skill .carousel-text {
+        display: none;
+      }
+    }
+    
+    .skill .item img {
+      width: 50%;
+      height: auto;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+      color: black;
+    }
+    
+    .slick-prev {
+      left: -35px;
+      z-index: 1;
+    }
+    
+    .slick-next {
+      right: -35px;
+      z-index: 1;
+    }
+    
     
   
     

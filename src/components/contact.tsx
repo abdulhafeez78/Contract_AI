@@ -141,7 +141,7 @@ export const Contact = () => {
                           <span>{buttonText}</span>
                         </button>
                       </Col>
-                      {status.message && (
+                      {/* {status.message && (
                         <Col>
                           <p
                             className={
@@ -151,7 +151,7 @@ export const Contact = () => {
                             {status.message}
                           </p>
                         </Col>
-                      )}
+                      )} */}
                     </Row>
                   </form>
                 </div>
