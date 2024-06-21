@@ -170,7 +170,7 @@ const FileUpload: React.FC = () => {
                             marginTop: 30,
                           }}
                         >
-                          Click 'Start' to begin.
+                          Click {"'"}Start{"'"} to begin.
                         </h1>
                         <center>
                           <button
