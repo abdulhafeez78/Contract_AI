@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { NavBar } from "../navbar";
 import axios from "axios";
 import { Navbar, Nav, Container, Modal, Button } from "react-bootstrap";
@@ -9,13 +9,11 @@ const FileUpload: React.FC = () => {
   const [selectedResponse, setSelectedResponse] = useState<string>("");
   const [questions, setQuestions] = useState([]);
   const [selectedQuestion, setSelectedQuestion] = useState("");
-  const [file, setFile] = useState("");
+  const [file, setFile] = useState<File | null>(null);
   const [show, setShow] = useState(true);
   const [index, setIndex] = useState(0);
   const [isDragOver, setIsDragOver] = useState(false);
-  const [score1, setScore1] = useState(0);
-  const [score2, setScore2] = useState(0);
-  const [score3, setScore3] = useState(0);
+  const [score, setScore] = useState(0);
   const [finalScore, setFinalScore] = useState<number | null>(null);
   const [showModal, setShowModal] = useState(false);
 
@@ -23,14 +21,12 @@ const FileUpload: React.FC = () => {
     setShowModal(false);
     setShow(true);
     setIndex(0);
-    setFile("");
-    setScore1(0);
-    setScore2(0);
-    setScore3(0);
+    setFile(null);
+    setScore(0);
     setFinalScore(null);
   };
 
-  const handleDragOver = (event: any) => {
+  const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     setIsDragOver(true);
   };
@@ -47,9 +43,8 @@ const FileUpload: React.FC = () => {
 
   const buttonArray = ["With Consent", "With Consent", "Partially"];
 
-  const calculateFinalScore = () => {
-    const totalScore = (score1 + score2 + score3) / 3;
-    setFinalScore(totalScore);
+  const calculateFinalScore = (updatedScore: number) => {
+    setFinalScore(updatedScore);
     setShowModal(true);
   };
 
@@ -57,9 +52,9 @@ const FileUpload: React.FC = () => {
     if (finalScore === null) return "";
     if (finalScore === 0)
       return " Overall Risk: Low - Fully compliant with the agreement.";
-    if (finalScore > 0 && finalScore <= 1)
+    if (finalScore >= 1 && finalScore <= 2)
       return " Overall Risk: Moderate - Some conditions require closer attention.";
-    if (finalScore > 1 && finalScore <= 2)
+    if (finalScore > 2)
       return " Overall Risk: High - Immediate action required for compliance.";
     return "Bad"; // Default message for any other cases
   };
@@ -67,11 +62,12 @@ const FileUpload: React.FC = () => {
   const getModalColor = () => {
     if (finalScore === null) return "";
     if (finalScore === 0) return "green";
-    if (finalScore > 0 && finalScore <= 1) return "orange";
-    if (finalScore > 1 && finalScore <= 2) return "red";
+    if (finalScore >= 1 && finalScore <= 2) return "orange";
+    if (finalScore > 2) return "red";
     return ""; // Default color for any other cases
   };
 
+  console.log(score);
   console.log(finalScore);
 
   return (
@@ -96,7 +92,7 @@ const FileUpload: React.FC = () => {
         </Nav>
       </div>
       <div className="dashboard">
-        {show == true ? (
+        {show ? (
           <>
             <form encType="multipart/form-data">
               <div
@@ -147,18 +143,48 @@ const FileUpload: React.FC = () => {
                             fontSize: "22px",
                           }}
                         >
-                          Contract Type : Non-Disclosure Agreement
+                          Contract Type :
+                          <span
+                            style={{
+                              fontWeight: 600,
+                              fontSize: "22px",
+                              marginLeft: 13,
+                            }}
+                          >
+                            Non-Disclosure Agreement
+                          </span>
                         </h1>
 
                         <h1
                           style={{
                             display: "flex",
                             justifyContent: "center",
-                            fontSize: "22px",
+                            fontSize: "18px",
                             marginTop: 20,
                           }}
                         >
-                          Non-Disclosure Agreement between TotalFit and Maison
+                          Non-Disclosure Agreement between{" "}
+                          <span
+                            style={{
+                              fontWeight: 700,
+                              marginRight: 13,
+                              marginLeft: 13,
+                            }}
+                          >
+                            TotalFit
+                          </span>{" "}
+                          and{" "}
+                          <span
+                            style={{
+                              fontWeight: 700,
+                              marginLeft: 13,
+
+                              marginRight: 13,
+                            }}
+                          >
+                            {" "}
+                            Maison
+                          </span>
                           Ltd
                         </h1>
 
@@ -166,11 +192,22 @@ const FileUpload: React.FC = () => {
                           style={{
                             display: "flex",
                             justifyContent: "center",
-                            fontSize: "22px",
+                            fontSize: "18px",
                             marginTop: 30,
                           }}
                         >
-                          Click {"'"}Start{"'"} to begin.
+                          Click{" "}
+                          <span
+                            style={{
+                              fontWeight: 700,
+                              marginLeft: 13,
+
+                              marginRight: 13,
+                            }}
+                          >
+                            {"'"}Start{"'"}
+                          </span>
+                          to begin.
                         </h1>
                         <center>
                           <button
@@ -232,15 +269,18 @@ const FileUpload: React.FC = () => {
                               className="custom-btn btn-9"
                               onClick={(e: any) => {
                                 e.preventDefault();
-                                if (index < 3) {
-                                  if (index === 0)
-                                    setScore1((prev) => prev + 0);
-                                  else if (index === 1)
-                                    setScore2((prev) => prev + 0);
-                                  else setScore3((prev) => prev + 0);
+                                if (index < 2) {
+                                  setScore((prev) => prev + 0);
                                   setIndex(index + 1);
+                                } else if (index === 2) {
+                                  setScore((prev) => {
+                                    const updatedScore = prev + 0;
+                                    calculateFinalScore(updatedScore);
+                                    setIndex(index + 1);
+
+                                    return updatedScore;
+                                  });
                                 }
-                                if (index === 2) calculateFinalScore();
                               }}
                             >
                               Yes
@@ -250,15 +290,18 @@ const FileUpload: React.FC = () => {
                               className="custom-btn btn-9"
                               onClick={(e: any) => {
                                 e.preventDefault();
-                                if (index < 3) {
-                                  if (index === 0)
-                                    setScore1((prev) => prev + 1);
-                                  else if (index === 1)
-                                    setScore2((prev) => prev + 1);
-                                  else setScore3((prev) => prev + 1);
+                                if (index < 2) {
+                                  setScore((prev) => prev + 2);
                                   setIndex(index + 1);
+                                } else if (index === 2) {
+                                  setScore((prev) => {
+                                    const updatedScore = prev + 2;
+                                    calculateFinalScore(updatedScore);
+                                    setIndex(index + 1);
+
+                                    return updatedScore;
+                                  });
                                 }
-                                if (index === 2) calculateFinalScore();
                               }}
                             >
                               No
@@ -268,15 +311,17 @@ const FileUpload: React.FC = () => {
                               className="custom-btn btn-9"
                               onClick={(e: any) => {
                                 e.preventDefault();
-                                if (index < 3) {
-                                  if (index === 0)
-                                    setScore1((prev) => prev + 2);
-                                  else if (index === 1)
-                                    setScore2((prev) => prev + 2);
-                                  else setScore3((prev) => prev + 2);
+                                if (index < 2) {
+                                  setScore((prev) => prev + 1);
                                   setIndex(index + 1);
+                                } else if (index === 2) {
+                                  setScore((prev) => {
+                                    const updatedScore = prev + 1;
+                                    calculateFinalScore(updatedScore);
+                                    setIndex(index + 1);
+                                    return updatedScore;
+                                  });
                                 }
-                                if (index === 2) calculateFinalScore();
                               }}
                             >
                               {buttonArray[index]}
@@ -319,25 +364,6 @@ const FileUpload: React.FC = () => {
                                 </Button>
                               </Modal.Footer>
                             </Modal>
-
-                            {/* <h1
-                              style={{
-                                display: "flex",
-                                justifyContent: "center",
-                                fontSize: "22px",
-                              }}
-                            >
-                              Contract Type : Non-Disclosure Agreement
-                            </h1>
-                            <h2
-                              style={{
-                                display: "flex",
-                                justifyContent: "center",
-                                marginTop: 50,
-                              }}
-                            >
-                              {getScoreMessage()}
-                            </h2> */}
                           </div>
                         )}
                       </>
