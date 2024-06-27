@@ -32,7 +32,7 @@ export const Foooter = () => {
                 />
               </a>
             </div>
-            <p>Copyright 2023. All Rights Reserved</p>
+            <p> All Rights are Reserved by Contract Assist</p>
           </Col>
         </Row>
       </Container>

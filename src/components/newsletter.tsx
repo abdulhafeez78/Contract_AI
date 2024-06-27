@@ -14,17 +14,24 @@ export const Newsletter = ({
 }: NewsletterProps) => {
   const [email, setEmail] = useState("");
 
+  const [btnText, setBtnText] = useState("Submit");
+
   useEffect(() => {
     if (status === "success") clearFields();
   }, [status]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    email &&
-      email.indexOf("@") > -1 &&
-      onValidated({
-        EMAIL: email,
-      });
+    // email &&
+    //   email.indexOf("@") > -1 &&
+    //   onValidated({
+    //     EMAIL: email,
+    //   });
+    setBtnText("Submit...");
+
+    setTimeout(() => {
+      setBtnText("Submit");
+    }, 2000);
   };
 
   const clearFields = () => {
@@ -37,7 +44,11 @@ export const Newsletter = ({
         <Row>
           <Col lg={12} md={6} xl={5}>
             <h3>
-              Subscribe to our Newsletter<br></br> & Never miss latest updates
+              Join the waiting list
+              <br />
+              <br />
+              Do not miss out on the official launch of Contract Assist
+              {/* Subscribe to our Newsletter<br></br> & Never miss latest updates */}
             </h3>
             {status === "sending" && (
               <Alert>
@@ -54,9 +65,9 @@ export const Newsletter = ({
                   value={email}
                   type="email"
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email Address"
+                  placeholder="Enter your email address to join the waiting list"
                 />
-                <button type="submit">Submit</button>
+                <button type="submit">{btnText}</button>
               </div>
             </form>
           </Col>

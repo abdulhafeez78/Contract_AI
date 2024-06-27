@@ -76,7 +76,7 @@ export const Banner = () => {
                     </span> */}
                   </h1>
                   <p>
-                    Traditionally, analyzing legal documents is time-consuming
+                    Traditionally, analysing legal documents is time-consuming
                     and expensive. Our platform automates the process by
                     applying machine learning algorithms to identify relevant
                     information and viewpoints, such as clauses, terms, and
@@ -87,7 +87,7 @@ export const Banner = () => {
                   </p>
                   <a href="/dashboard">
                     <button>
-                      Get Started for free <ArrowRightCircle size={25} />
+                      Get Demo for free <ArrowRightCircle size={25} />
                     </button>
                   </a>
                 </div>

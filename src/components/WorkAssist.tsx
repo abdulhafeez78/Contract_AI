@@ -8,7 +8,7 @@ import colorSharp2 from "../assets/img/color-sharp2.png";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 
-export const Projects = () => {
+export const WorkAssist = () => {
   const projects = [
     {
       title: "Sarah Bamidele",
@@ -28,7 +28,14 @@ export const Projects = () => {
   ];
 
   return (
-    <section className="project" id="dev">
+    <section
+      className="project"
+      style={{
+        background:
+          "linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%)",
+      }}
+      id="workassist"
+    >
       <Container>
         <Row>
           <Col sm={12}>
@@ -39,11 +46,18 @@ export const Projects = () => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <h2>Who we are ?</h2>
+                  <h2>What Contract Assist is ?</h2>
                   <p>
-                    Our talented team have contributed their expertise, passion,
-                    and dedication to crafting innovative solutions that meet
-                    the needs of our clients and users.
+                    Founded in 2022, <b>Contract Assist</b> bridges the
+                    knowledge gap between business teams and lawyers. Our MVP
+                    empowers non-legal users to conduct initial contract
+                    reviews, reducing the need for legal involvement and
+                    streamlining the review process.
+                    <br /> <b>Contract Assist </b> is a platform that utilizes
+                    AI and automation to simplify and streamline the contract
+                    reviewing process for commercial teams, allowing them to
+                    conduct initial reviews of straightforward contracts without
+                    requiring legal expertise.
                   </p>
                   <Tab.Container id="projects-tabs" defaultActiveKey="first">
                     {/* <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
@@ -64,19 +78,7 @@ export const Projects = () => {
                       }
                     >
                       <Tab.Pane eventKey="first">
-                        <Row>
-                          {projects.map((project, index) => (
-                            <div
-                              key={index}
-                              style={{
-                                display: "flex",
-                                justifyContent: "center",
-                              }}
-                            >
-                              <ProjectCard {...project} />
-                            </div>
-                          ))}
-                        </Row>
+                        <Row></Row>
                       </Tab.Pane>
                       {/* <Tab.Pane eventKey="second">
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>

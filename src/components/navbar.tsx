@@ -6,10 +6,16 @@ import navIcon1 from "../assets/img/nav-icon1.svg";
 import navIcon2 from "../assets/img/nav-icon2.svg";
 import navIcon3 from "../assets/img/nav-icon3.svg";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+  const router = useRouter();
+  const logout = () => {
+    localStorage.clear();
+    window.location.href = "/";
+  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -49,6 +55,7 @@ export const NavBar = () => {
             >
               Home
             </Nav.Link>
+
             <Nav.Link
               href="#features"
               className={
@@ -58,6 +65,27 @@ export const NavBar = () => {
             >
               Features
             </Nav.Link>
+
+            <Nav.Link
+              href="#workassist"
+              className={
+                activeLink === "home" ? "active navbar-link" : "navbar-link"
+              }
+              // onClick={() => onUpdateActiveLink("home")}
+            >
+              Contract Assist
+            </Nav.Link>
+
+            <Nav.Link
+              href="#dev"
+              className={
+                activeLink === "home" ? "active navbar-link" : "navbar-link"
+              }
+              // onClick={() => onUpdateActiveLink("home")}
+            >
+              About Us
+            </Nav.Link>
+
             {/* <Nav.Link
               href="#dev"
               className={
@@ -71,7 +99,7 @@ export const NavBar = () => {
           <Link href="/dashboard" style={{ textDecoration: "none" }}>
             <span className="navbar-text">
               <button className="vvd ">
-                <span>Get Started</span>
+                <span>Start Your Demo</span>
               </button>
 
               {/* <a className="sign-out">
@@ -83,6 +111,16 @@ export const NavBar = () => {
             </a> */}
             </span>
           </Link>
+          <Nav>
+            <Nav.Link
+              className={
+                activeLink === "home" ? "active navbar-link" : "navbar-link"
+              }
+              onClick={logout}
+            >
+              Logout
+            </Nav.Link>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

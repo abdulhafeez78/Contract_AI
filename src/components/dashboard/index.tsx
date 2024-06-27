@@ -112,7 +112,7 @@ const FileUpload: React.FC = () => {
                 }}
               >
                 <span className="drop-title">
-                  To analyze your document, drop your file here
+                  To analyse your document, drop your file here
                 </span>
                 or
                 <input

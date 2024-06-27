@@ -1,5 +1,6 @@
 import { StaticImageData } from "next/image";
 import { Col } from "react-bootstrap";
+import { Justify } from "react-bootstrap-icons";
 
 interface ProjectCardProps {
   title: string;
@@ -7,7 +8,11 @@ interface ProjectCardProps {
   imgUrl: string | StaticImageData;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imgUrl }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({
+  title,
+  description,
+  imgUrl,
+}) => {
   const imageUrl = typeof imgUrl === "string" ? imgUrl : imgUrl.toString();
 
   return (
