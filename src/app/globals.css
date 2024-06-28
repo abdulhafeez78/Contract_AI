@@ -137,7 +137,7 @@ nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
   color: #fff !important;
   letter-spacing: 0.8px;
-  padding: 0 25px;
+  /* padding: 0 25px; */
   font-size: 18px;
   opacity: 0.75;
 }
@@ -287,6 +287,87 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
 nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     border-color: transparent;
 }
+
+
+
+/* Custom Styles for Navbar */
+nav.navbar {
+  padding: 18px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 9999;
+  transition: 0.32s ease-in-out;
+}
+
+nav.navbar.scrolled {
+  padding: 0px 0;
+  background-color: #121212;
+}
+
+nav.navbar a.navbar-brand img {
+  width: 100px;
+  transition: width 0.3s;
+}
+
+nav.navbar .navbar-nav .nav-link {
+  font-weight: 400;
+  color: #fff !important;
+  letter-spacing: 0.8px;
+  font-size: 18px;
+  opacity: 0.75;
+}
+
+nav.navbar .navbar-nav .nav-link.active {
+  opacity: 1;
+}
+
+.navbar-text button {
+  font-weight: 700;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-left: 10px;
+  background-color: transparent;
+  transition: 0.3s ease-in-out;
+}
+
+.navbar-text button:hover {
+  color: #121212;
+  background-color: #fff;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  nav.navbar .navbar-nav .nav-link {
+    font-size: 16px;
+  }
+
+  .navbar-text button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  nav.navbar a.navbar-brand img {
+    width: 80px;
+  }
+
+  nav.navbar .navbar-nav .nav-link {
+    font-size: 12px;
+  }
+
+  .navbar-text button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+
+
+
 
 /************ Banner Css ************/
 .banner {

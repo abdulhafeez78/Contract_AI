@@ -1,10 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import logo from "/assets/img/new_logo.png";
-import navIcon1 from "../assets/img/nav-icon1.svg";
-import navIcon2 from "../assets/img/nav-icon2.svg";
-import navIcon3 from "../assets/img/nav-icon3.svg";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -31,7 +27,7 @@ export const NavBar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const onUpdateActiveLink = (value: string) => {
+  const onUpdateActiveLink = (value: any) => {
     setActiveLink(value);
   };
 
@@ -39,7 +35,7 @@ export const NavBar = () => {
     <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
       <Container>
         <Navbar.Brand href="/">
-          <img className="logo-css" src="/new_logo.png" alt="Logo" />
+          <img className="logo-css" src="/assets/img/new_logo.png" alt="Logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav">
           <span className="navbar-toggler-icon"></span>
@@ -55,7 +51,6 @@ export const NavBar = () => {
             >
               Home
             </Nav.Link>
-
             <Nav.Link
               href="#features"
               className={
@@ -65,62 +60,36 @@ export const NavBar = () => {
             >
               Features
             </Nav.Link>
-
             <Nav.Link
               href="#workassist"
               className={
                 activeLink === "home" ? "active navbar-link" : "navbar-link"
               }
-              // onClick={() => onUpdateActiveLink("home")}
             >
               Contract Assist
             </Nav.Link>
-
             <Nav.Link
               href="#dev"
               className={
                 activeLink === "home" ? "active navbar-link" : "navbar-link"
               }
-              // onClick={() => onUpdateActiveLink("home")}
             >
               About Us
             </Nav.Link>
-
-            {/* <Nav.Link
-              href="#dev"
+            <Nav.Link
+              href="/demo-video"
               className={
-                activeLink === "projects" ? "active navbar-link" : "navbar-link"
+                activeLink === "home" ? "active navbar-link" : "navbar-link"
               }
-              onClick={() => onUpdateActiveLink("projects")}
             >
-              Developers
-            </Nav.Link> */}
-
-            <Nav>
-              <Nav.Link
-                href="/demo-video"
-                className={
-                  activeLink === "home" ? "active navbar-link" : "navbar-link"
-                }
-              >
-                Demo
-              </Nav.Link>
-            </Nav>
+              Demo
+            </Nav.Link>
           </Nav>
-
           <Link href="/dashboard" style={{ textDecoration: "none" }}>
             <span className="navbar-text">
-              <button className="vvd ">
+              <button className="vvd">
                 <span>Start Your Demo</span>
               </button>
-
-              {/* <a className="sign-out">
-              <span style={{ cursor: "pointer" }}>Sign Out</span>
-            </a>
-
-            <a href="/me">
-              <span style={{}} className="avatar-navbar" />
-            </a> */}
             </span>
           </Link>
           <Nav>
