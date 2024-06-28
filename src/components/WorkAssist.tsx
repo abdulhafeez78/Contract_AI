@@ -42,22 +42,31 @@ export const WorkAssist = () => {
             <TrackVisibility>
               {({ isVisible }) => (
                 <div
-                  className={
-                    isVisible ? "animate__animated animate__fadeIn" : ""
-                  }
+                // className={
+                //   isVisible ? "animate__animated animate__fadeIn" : ""
+                // }
                 >
                   <h2>What Contract Assist is ?</h2>
                   <p>
-                    Founded in 2022, <b>Contract Assist</b> bridges the
-                    knowledge gap between business teams and lawyers. Our MVP
-                    empowers non-legal users to conduct initial contract
-                    reviews, reducing the need for legal involvement and
-                    streamlining the review process.
-                    <br /> <b>Contract Assist </b> is a platform that utilizes
-                    AI and automation to simplify and streamline the contract
-                    reviewing process for commercial teams, allowing them to
-                    conduct initial reviews of straightforward contracts without
-                    requiring legal expertise.
+                    <b> Contract Assist </b> is a cutting-edge legal technology
+                    product that empowers commercial teams to efficiently
+                    evaluate and analyse contracts., Contract Assist streamlines
+                    the contract review process for in-house commercial teams,
+                    even when collaborating with team members from different
+                    locations.
+                    <br />
+                    <br />
+                    <span style={{ fontWeight: 600, fontSize: "20px" }}>
+                      What are the main features of your product/service?{" "}
+                    </span>
+                    <br />
+                    <br />
+                    Simplify and make legal question easy to
+                    understand/digestible for people who don’t have a legal
+                    background Streamlining the process of how non-legal teams
+                    work with legal teams or approach legal issues Highlight
+                    risks of failing to comply with key clauses .
+                    Contract-scoring tool - which highlights risk
                   </p>
                   <Tab.Container id="projects-tabs" defaultActiveKey="first">
                     {/* <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">

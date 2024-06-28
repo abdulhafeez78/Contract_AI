@@ -81,6 +81,7 @@ export const SignUp = ({ setAccess }: any) => {
                           type="email"
                           value={formDetails.email}
                           placeholder="Email Address"
+                          required
                           onChange={(e) =>
                             onFormUpdate("email", e.target.value)
                           }
@@ -88,7 +89,7 @@ export const SignUp = ({ setAccess }: any) => {
                       </Col>
                       <Col xs={12} className="px-1">
                         <input
-                          type="tel"
+                          type="text"
                           value={formDetails.password}
                           placeholder="Password"
                           onChange={(e) =>
