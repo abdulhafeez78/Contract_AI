@@ -11,9 +11,9 @@ import TrackVisibility from "react-on-screen";
 export const Projects = () => {
   const projects = [
     {
-      title: "Sarah Bamidele",
-      description: `MBA`,
-      imgUrl: "/founder.jpeg",
+      title: "Sarah B",
+      description: `Founder`,
+      imgUrl: "/founder.jpg",
     },
     // {
     //   title: "OUSSAMA LOUATI",

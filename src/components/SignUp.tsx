@@ -73,14 +73,14 @@ export const SignUp = ({ setAccess }: any) => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <h2>Sign In</h2>
+                  <h2>Welcome to the Pre-reveal of Contract Assist</h2>
                   <form onSubmit={submit}>
                     <Row>
                       <Col xs={12} className="px-1">
                         <input
                           type="email"
                           value={formDetails.email}
-                          placeholder="Email Address"
+                          placeholder="Enter Email Address"
                           required
                           onChange={(e) =>
                             onFormUpdate("email", e.target.value)
@@ -91,13 +91,17 @@ export const SignUp = ({ setAccess }: any) => {
                         <input
                           type="text"
                           value={formDetails.password}
-                          placeholder="Password"
+                          placeholder="Enter Password"
                           onChange={(e) =>
                             onFormUpdate("password", e.target.value)
                           }
                         />
                       </Col>
-                      <Col xs={12} className="px-1">
+                      <Col
+                        xs={12}
+                        className="px-1"
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
                         <button type="submit">
                           <span>{buttonText}</span>
                         </button>

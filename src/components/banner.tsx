@@ -63,9 +63,9 @@ export const Banner = () => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <span className="tagline">Welcome to Contract Assist AI</span>
+                  <span className="tagline">Welcome to Contract Assist </span>
                   <h1>
-                    Discover the power of innovation with AI.
+                    Discover the power of innovation with AI
                     {/* {`Hi! I'm Judy`}{" "}
                     <span
                       className="txt-rotate"

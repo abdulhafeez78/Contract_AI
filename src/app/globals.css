@@ -786,9 +786,32 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     transition: width 0.3s ease;
   }
   
+.image-container{
+  margin-bottom: 50px;
+  width: 400px;
+}
 
+.video{
+  width: 700px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 
+@media screen and (max-width:680px) {
+  
+.video{
+  width: 350px;
+  
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 
+.image-container{
+  margin-bottom: 50px;
+  width: 300px;
+}
+
+}
 
   .dashboard {
     
