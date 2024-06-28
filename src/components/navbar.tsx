@@ -95,7 +95,19 @@ export const NavBar = () => {
             >
               Developers
             </Nav.Link> */}
+
+            <Nav>
+              <Nav.Link
+                href="/demo-video"
+                className={
+                  activeLink === "home" ? "active navbar-link" : "navbar-link"
+                }
+              >
+                Demo
+              </Nav.Link>
+            </Nav>
           </Nav>
+
           <Link href="/dashboard" style={{ textDecoration: "none" }}>
             <span className="navbar-text">
               <button className="vvd ">
