@@ -1,9 +1,10 @@
 "use client";
-import DemoVideo from "@/components/DemoVideo";
+
+import FlowContractAssist from "@/components/FlowContractAssist";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-const DemoVideoPage = () => {
+const FlowPage = () => {
   const [access, setAccess] = useState("");
   const router = useRouter();
   useEffect(() => {
@@ -16,9 +17,9 @@ const DemoVideoPage = () => {
 
   return (
     <div style={!access ? { display: "none" } : { display: "block" }}>
-      <DemoVideo />
+      <FlowContractAssist />
     </div>
   );
 };
 
-export default DemoVideoPage;
+export default FlowPage;

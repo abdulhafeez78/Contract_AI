@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { SignUp } from "@/components/SignUp";
 import { useRouter } from "next/navigation";
 import { WorkAssist } from "@/components/WorkAssist";
+import DemoVideo from "@/components/DemoVideo";
 export default function Home() {
   const [access, setAccess] = useState(false);
 
@@ -44,6 +45,7 @@ export default function Home() {
         <>
           <NavBar />
           <Banner />
+          <DemoVideo />
           <Skills />
           <WorkAssist />
           <Projects />

@@ -77,12 +77,12 @@ export const NavBar = () => {
               About Us
             </Nav.Link>
             <Nav.Link
-              href="/demo-video"
+              href="/flow"
               className={
                 activeLink === "home" ? "active navbar-link" : "navbar-link"
               }
             >
-              Demo
+              Blueprint
             </Nav.Link>
           </Nav>
           <Link href="/dashboard" style={{ textDecoration: "none" }}>
